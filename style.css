@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+}
+
+.orbit, .core, .electron {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 30rem;
+}
+
+.core {
+    width: 6vmin;
+    height: 6vmin;
+    background: radial-gradient(circle at 10px 20px, red, black);
+}
+
+.orbit .electron {
+    width: 4vmin;
+    height: 4vmin;
+    background: radial-gradient(circle at 10px 20px, blue, black);
+    animation: spin linear infinite;
+    animation-duration: var(--time);
+}
+
+.orbit {
+    width: 40vmin;
+    height: 40vmin;
+    border: 2px solid gray;
+    transform-style: preserve-3d;
+}
+
+.orbit:nth-child(1) {
+    transform: rotateZ(60deg) rotateY(70deg);
+}
+.orbit:nth-child(2) {
+    transform: rotateZ(180deg) rotateY(70deg);
+}
+.orbit:nth-child(3) {
+    transform: rotateZ(300deg) rotateY(70deg);
+}
+
+@keyframes spin {
+    from {
+        transform: rotateZ(0) translateX(20vmin) rotateZ(0) rotateY(-70deg);
+    }
+    to {
+        transform: rotateZ(360deg) translateX(20vmin) rotateZ(-360deg) rotateY(-70deg);
+    }
+}
